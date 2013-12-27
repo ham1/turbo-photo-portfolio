@@ -4,7 +4,7 @@ include_once 'header.php';
 ?>
 		<div id="welcome">
 			<h1>G LOGO</h1>
-			<h1>Graham Russell Photography</h1>
+			<h1><?php echo $fullCompanyName; ?></h1>
 		</div>
 
 	<footer>

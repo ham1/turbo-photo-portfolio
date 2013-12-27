@@ -6,8 +6,6 @@
     $retrySubmit = false;
     if (isset($_POST['submit'])) {
         if (trim($_POST['human']) == '4') {
-            $toEmail = 'contact@grussellphotography.com'; 
-            
             $emailSubject = 'TPP Contact from: ' . $_POST['name'];
 
             $emailBody = 'Name: ' . $_POST['name'];

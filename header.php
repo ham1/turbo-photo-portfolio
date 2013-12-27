@@ -1,33 +1,33 @@
 <?php 
-$time_start = microtime(true);
-if (!isset($pageName)) {
-    $pageName = '';
-}
-$navHighlight = ' class="current"';
+    $time_start = microtime(true);
+    if (!isset($pageName)) {
+     $pageName = '';
+    }
+    $navHighlight = ' class="current"';
+    /* User customisation */
+    $toEmail = 'contact@grussellphotography.com';
+    $fullCompanyName = 'Graham Russell Photography';
+    $companyName = 'GRussell Photography';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- Basic Page Needs
-  ================================================== -->
+	<!-- Basic Page Needs ========================== -->
 	<meta charset="utf-8">
 	<title>Turbo Photography Portfolio - <?php echo $pageName; ?></title>
 	<meta name="description" content="">
 	<meta name="author" content="Graham Russell">
 
-	<!-- Mobile Specific Metas
-  ================================================== -->
+	<!-- Mobile Specific Metas ====================== -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<!-- CSS
-  ================================================== -->
+	<!-- CSS ======================================== -->
 	<link rel="stylesheet" href="css/melody.css">
 	<link rel="stylesheet" href="css/tpp.css">
 	<link href="css/lightbox.css" rel="stylesheet" />
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
 
-	<!-- Favicons
-  ================================================== -->
+	<!-- Favicons =================================== -->
 	<link rel="shortcut icon" href="img/favicon.png">
 </head>
 <body>
