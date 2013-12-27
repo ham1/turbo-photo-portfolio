@@ -1,4 +1,5 @@
 <?php
+$pageName = 'Portfolio';
 include_once 'header.php';
 
 function endsWith($haystack, $needle)
@@ -15,8 +16,8 @@ function makePath() {
 }
 
 ?>
-        <div id="gallery" style="z-index:-100" class="container">
-        <div class="grid 1of1 center">GRPhotography Portfolio</div>
+        <div id="gallery" class="container">
+        <div class="grid 1of1 center remove-padding"></div>
 <?php
 /*
   4. output gallery html
@@ -26,13 +27,9 @@ $TDIR = 'thumbs';
 
 // traverse portfolio dir
 $albumArray = listDir($DIR);
-$totalAlbums = count($albumArray);
-$albumCount = 0;
-$WIDTH = 3;
 foreach ($albumArray as $albumName) {
-        $albumCount++;
-    echo '          <div class="album grid 1of'. $WIDTH .'">
-        <h3>' . $albumName . '</h3>
+    echo '          <div class="album grid 1of3">
+        <h2>' . $albumName . '</h2>
         ';
     
     $imageArray = listDir(makePath($DIR, $albumName));

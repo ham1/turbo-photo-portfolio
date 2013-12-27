@@ -1,6 +1,7 @@
 <?php
     /* Thanks to http://tangledindesign.com/how-to-create-a-contact-form-using-html5-css3-and-php/
        for a lot of the php, html and css. */
+    $pageName = 'Contact';
     include_once 'header.php';
     $retrySubmit = false;
     if (isset($_POST['submit'])) {

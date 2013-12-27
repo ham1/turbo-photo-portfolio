@@ -48,6 +48,10 @@ nav a {
 	text-align: center;
 }
 
+nav .current {
+    background-color: #ea2;
+}
+
 footer {
 	height: 2em;
 	width:100%;

@@ -1,5 +1,9 @@
 <?php 
 $time_start = microtime(true);
+if (!isset($pageName)) {
+    $pageName = '';
+}
+$navHighlight = ' class="current"';
 ?>
 <!DOCTYPE html>
 <html>
@@ -7,7 +11,7 @@ $time_start = microtime(true);
 	<!-- Basic Page Needs
   ================================================== -->
 	<meta charset="utf-8">
-	<title>Turbo Photography Portfolio</title>
+	<title>Turbo Photography Portfolio - <?php echo $pageName; ?></title>
 	<meta name="description" content="">
 	<meta name="author" content="Graham Russell">
 
@@ -30,11 +34,11 @@ $time_start = microtime(true);
 		<header>
 			<nav>
 				<ul>
-				<li><a href="/">Home</a>
-				<li><a href="portfolio.php">Portfolio</a>
+				<li><a href="/"<?php if ($pageName == 'Home') echo $navHighlight; ?>>Home</a>
+				<li><a href="portfolio.php"<?php if ($pageName == 'Portfolio') echo $navHighlight; ?>>Portfolio</a>
 				<li><a href="http://blog.grussellphotography.com/">Blog</a>
-				<li><a href="about.php">About</a>
-				<li><a href="contact.php">Contact</a>
+				<li><a href="about.php"<?php if ($pageName == 'About') echo $navHighlight; ?>>About</a>
+				<li><a href="contact.php"<?php if ($pageName == 'Contact') echo $navHighlight; ?>>Contact</a>
 				</ul>
 			</nav>
 		</header>

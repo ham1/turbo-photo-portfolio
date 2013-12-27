@@ -1,4 +1,7 @@
-<?php include_once 'header.php' ?>
+<?php
+$pageName = 'Home';
+include_once 'header.php';
+?>
 		<div id="welcome">
 			<h1>G LOGO</h1>
 			<h1>Graham Russell Photography</h1>

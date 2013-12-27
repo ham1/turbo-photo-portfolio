@@ -1,4 +1,7 @@
-<?php include_once 'header.php' ?>
+<?php
+    $pageName = 'About';
+    include_once 'header.php';
+?>
         <div class="container">
         <div class="1of1">
 			<h1>Graham Russell Photography</h1>
