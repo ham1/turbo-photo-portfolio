@@ -11,7 +11,7 @@ function endsWith($haystack, $needle)
 }
 
 function isJpg($fileName) {
-    return endsWith($imageName, '.jpg') || endsWith($imageName, '.jpeg');
+    return endsWith($fileName, '.jpg') || endsWith($fileName, '.jpeg');
 }
 
 function stripFileExt($filename){
@@ -26,17 +26,19 @@ function makePath() {
     return implode('/', func_get_args());
 }
 
-function imagePath($imageName) {
+function imagePath($album, $imageName) {
+    global $DIR;
 	return makePath($DIR, $album, $imageName);
 }
 
-function thumbPath($imageName) {
+function thumbPath($album, $imageName) {
+    global $TDIR;
 	return makePath($TDIR, $album, $imageName);
 }
 
-function checkAndCreateThumbnail($imageName) {
-	$imagePath = imagePath($imageName);
-    $thumbPath = thumbPath($imageName);
+function checkAndCreateThumbnail($album, $imageName) {
+	$imagePath = imagePath($album, $imageName);
+    $thumbPath = thumbPath($album, $imageName);
     // make dir structure if needed
     if (!file_exists(dirname($thumbPath))) {
         mkdir(dirname($thumbPath), 0755, true);
@@ -44,7 +46,7 @@ function checkAndCreateThumbnail($imageName) {
     if (!is_file($thumbPath)) {
 	    // create thumbnail
 	    $img = new Imagick($imagePath);
-	    $img->cropThumbnailImage($thumbSize,$thumbSize);
+	    $img->cropThumbnailImage($thumbSize, $thumbSize);
 	    $img->writeImage($thumbPath);
 	    $img->destroy();
 	}

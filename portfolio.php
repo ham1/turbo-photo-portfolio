@@ -12,15 +12,15 @@ foreach ($albumArray as $albumName) {
     $imageArray = listDir(makePath($DIR, $albumName));
     $imageName = reset($imageArray); // get the first image (using reset)
     if (!isJpg($imageName)) {
-        echo 'WARN: First file in album ' . $albumName .' is not a .jpg file!';
+        echo '<p>WARN: First file in album ' . $albumName .' is not a .jpg file!';
         continue;
     }
-    checkAndCreateThumbnail($$imageName);
+    checkAndCreateThumbnail($albumName, $imageName);
     echo '
           <div class="album grid 1of3">
             <a href="album.php?album=' . $albumName . '" title="Album: '. $albumName .'">
               <h2>' . $albumName . '</h2>
-              <img src="' . thumbPath($imageName) . '" width="'. $thumbSize .'" height="'. $thumbSize .'" />
+              <img src="' . thumbPath($albumName, $imageName) . '" width="'. $thumbSize .'" height="'. $thumbSize .'" />
             </a>
           </div>' . "\n";
 }
