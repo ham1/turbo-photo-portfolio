@@ -22,9 +22,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<!-- CSS ======================================== -->
-	<link rel="stylesheet" href="css/melody.css">
-	<link rel="stylesheet" href="css/tpp.css">
-	<link href="css/lightbox.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/css_loader.php">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
 
 	<!-- Favicons =================================== -->
