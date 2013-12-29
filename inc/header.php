@@ -4,17 +4,7 @@
      $pageName = '';
     }
     $navHighlight = ' class="current"';
-    
-    /********************************************************/
-    /* User customisation                                   */
-    /********************************************************/
-    $toEmail = 'contact@grussellphotography.com';
-    $copyright = 'Graham Russell';
-    $description = 'A really fast and simple photo portfolio';
-    $fullCompanyName = 'Graham Russell Photography';
-    $companyName = 'GRussell Photography';
-    $blogAddress = 'http://blog.grussellphotography.com/';
-    /********************************************************/
+    require_once('variables.php');
 ?>
 <!DOCTYPE html>
 <html>

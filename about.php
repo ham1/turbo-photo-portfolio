@@ -1,6 +1,6 @@
 <?php
     $pageName = 'About';
-    include_once 'header.php';
+    include_once 'inc/header.php';
 ?>
         <div class="container">
         <div class="1of1">
@@ -12,4 +12,4 @@
             <p>Aliquam erat volutpat. Etiam aliquet iaculis ante. Donec rutrum cursus rhoncus. Nulla justo mauris, volutpat eget nisi non, viverra aliquam mi. Pellentesque commodo, mi sit amet viverra euismod, ante turpis posuere nunc, eu molestie tellus sapien eget urna. Vestibulum enim neque, pellentesque in consequat et, dictum ut lorem. Proin accumsan, enim sit amet pulvinar mattis, nisi nisl luctus elit, blandit consequat neque tortor vitae risus. Aliquam eget est eget massa convallis commodo. Nullam in dignissim magna. Cras ac lectus neque.
 		</div>
         </div>
-<?php include_once 'footer.php' ?>
+<?php include_once 'inc/footer.php' ?>

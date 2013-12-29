@@ -2,7 +2,7 @@
     /* Thanks to http://tangledindesign.com/how-to-create-a-contact-form-using-html5-css3-and-php/
        for a lot of the code for this page. */
     $pageName = 'Contact';
-    include_once 'header.php';
+    include_once 'inc/header.php';
     $retrySubmit = false;
     if (isset($_POST['submit'])) {
         if (trim($_POST['human']) == '4') {
@@ -56,4 +56,4 @@ if (isset($_POST['submit'])) {
             </form>
         </div>
         </div>
-<?php include_once 'footer.php' ?>
+<?php include_once 'inc/footer.php' ?>

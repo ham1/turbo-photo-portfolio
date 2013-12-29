@@ -1,7 +1,7 @@
 <?php
 $pageName = 'Album: ' . $_GET['album'];
-include_once 'header.php';
-include_once 'gallery.inc.php';
+include_once 'inc/header.php';
+include_once 'inc/gallery.inc.php';
 
 // makes sure the get variable is actually an album
 $albumArray = listDir($DIR);
@@ -31,5 +31,5 @@ foreach ($imageArray as $imageName) {
 echo '        </div>
         <script src="js/jquery-1.10.2.min.js"></script>
         <script src="js/lightbox-2.6.min.js"></script>';
-include_once 'footer.php';
+include_once 'inc/footer.php';
 ?>

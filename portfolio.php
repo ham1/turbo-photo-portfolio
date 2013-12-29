@@ -1,7 +1,7 @@
 <?php
 $pageName = 'Portfolio';
-include_once 'header.php';
-include_once 'gallery.inc.php';
+include_once 'inc/header.php';
+include_once 'inc/gallery.inc.php';
 ?>
         <div id="gallery" class="container">
         <div class="grid 1of1 center remove-padding"></div>
@@ -20,5 +20,5 @@ foreach ($albumArray as $albumName) {
           </div>', "\n";
 }
 echo '        </div>';
-include_once 'footer.php';
+include_once 'inc/footer.php';
 ?>

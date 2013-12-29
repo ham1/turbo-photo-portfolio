@@ -2,7 +2,7 @@
 // define some common variables
 $DIR='portfolio';
 $TDIR='thumbs';
-$thumbSize = 160;
+require_once('variables.php');
 
 // define some common functions
 function endsWith($haystack, $needle)

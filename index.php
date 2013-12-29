@@ -1,10 +1,10 @@
 <?php
 $pageName = 'Home';
-include_once 'header.php';
+include_once 'inc/header.php';
 ?>
     <div id="welcome" class="container">
         <div class="grid 1of1 center remove-padding">
 			<h1><?php echo $fullCompanyName; ?></h1>
 		</div>
      </div>
-<?php include_once 'footer.php' ?>
+<?php include_once 'inc/footer.php' ?>
