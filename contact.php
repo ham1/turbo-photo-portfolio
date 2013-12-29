@@ -30,9 +30,16 @@
     }
 ?>
         <div class="container">
-        <?php if (isset($_POST['submit']) && $retrySubmit) echo '<div id="contact-error" class="grid 1of1">' . $userMessage . '</div>'; ?>
-        <?php if (isset($_POST['submit']) && !$retrySubmit) echo '<div id="contact-ok" class="grid 1of1">' . $userMessage . '</div>'; ?>
-		<div class="grid 1of1">
+<?php
+if (isset($_POST['submit'])) {
+    if ($retrySubmit) {
+        echo '<div id="contact-error" class="grid 1of1">' . $userMessage . '</div>';
+    } else {
+        echo '<div id="contact-ok" class="grid 1of1">' . $userMessage . '</div>';
+    }
+}
+?>
+        <div class="grid 1of1">
             <form id="contact_form" method="post" action="contact.php">
                 <label>*Name</label>
                 <input name="name" type="text" placeholder="Type Your Name Here" required autofocus<?php if ($retrySubmit) echo ' value="' . $_POST['name'] . '"';?>>
@@ -44,6 +51,6 @@
                 <input name="human" type="text" placeholder="Type The Answer Here" required>
                 <input id="contact_submit" name="submit" type="submit" value="Submit">
             </form>
-		</div>
+        </div>
         </div>
 <?php include_once 'footer.php' ?>

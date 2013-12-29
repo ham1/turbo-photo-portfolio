@@ -1,5 +1,7 @@
+<footer>
+<?php echo '&copy; ' . $copyright . ' :: ' . date('Y'); ?>
 
-<?php echo '<!-- generated in: ' . round((microtime(true) - $time_start)*1000, 2) . 'ms -->';?>
-
+</footer>
 </body>
 </html>
+<?php echo '<!-- generated in: ' . round((microtime(true) - $time_start)*1000, 2) . 'ms -->'; ?>

@@ -4,10 +4,17 @@
      $pageName = '';
     }
     $navHighlight = ' class="current"';
-    /* User customisation */
+    
+    /********************************************************/
+    /* User customisation                                   */
+    /********************************************************/
     $toEmail = 'contact@grussellphotography.com';
+    $copyright = 'Graham Russell';
+    $description = 'A really fast and simple photo portfolio';
     $fullCompanyName = 'Graham Russell Photography';
     $companyName = 'GRussell Photography';
+    $blogAddress = 'http://blog.grussellphotography.com/';
+    /********************************************************/
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +22,7 @@
 	<!-- Basic Page Needs ========================== -->
 	<meta charset="utf-8">
 	<title>Turbo Photography Portfolio - <?php echo $pageName; ?></title>
-	<meta name="description" content="">
+	<meta name="description" content="<?php echo $description; ?>">
 	<meta name="author" content="Graham Russell">
 
 	<!-- Mobile Specific Metas ====================== -->
@@ -32,9 +39,9 @@
 		<header>
 			<nav>
 				<ul>
-				<li><a href="/"<?php if ($pageName == 'Home') echo $navHighlight; ?>>Home</a>
+				<li><a href="index.php"<?php if ($pageName == 'Home') echo $navHighlight; ?>>Home</a>
 				<li><a href="portfolio.php"<?php if ($pageName == 'Portfolio') echo $navHighlight; ?>>Portfolio</a>
-				<li><a href="http://blog.grussellphotography.com/">Blog</a>
+				<li><a href="<?php echo $blogAddress; ?>">Blog</a>
 				<li><a href="about.php"<?php if ($pageName == 'About') echo $navHighlight; ?>>About</a>
 				<li><a href="contact.php"<?php if ($pageName == 'Contact') echo $navHighlight; ?>>Contact</a>
 				</ul>

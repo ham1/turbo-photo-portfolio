@@ -23,7 +23,7 @@ foreach ($imageArray as $imageName) {
 	checkAndCreateThumbnail($album, $imageName);
     echo '
         <div class="album grid 1of4">
-          <a href="' . imagePath($album, $imageName) . '" data-lightbox="' . $album . '" title="' . $imageName . '">
+          <a href="' . imagePath($album, $imageName) . '" data-lightbox="' . $album . '" title="' . stripFileExt($imageName) . '">
             <img src="' . thumbPath($album, $imageName) . '" width="'. $thumbSize .'" height="'. $thumbSize .'" />
           </a>
         </div>' . "\n";
