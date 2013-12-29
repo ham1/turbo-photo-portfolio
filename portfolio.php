@@ -9,20 +9,15 @@ include_once 'gallery.inc.php';
 // traverse portfolio dir
 $albumArray = listDir($DIR);
 foreach ($albumArray as $albumName) {
-    $imageArray = listDir(makePath($DIR, $albumName));
-    $imageName = reset($imageArray); // get the first image (using reset)
-    if (!isJpg($imageName)) {
-        echo '<p>WARN: First file in album ' . $albumName .' is not a .jpg file!';
-        continue;
-    }
+    $imageName = getFirstJpgFile(makePath($DIR, $albumName));
     checkAndCreateThumbnail($albumName, $imageName);
     echo '
           <div class="album grid 1of3">
-            <a href="album.php?album=' . $albumName . '" title="Album: '. $albumName .'">
-              <h2>' . $albumName . '</h2>
-              <img src="' . thumbPath($albumName, $imageName) . '" width="'. $thumbSize .'" height="'. $thumbSize .'" />
+            <a href="album.php?album=', $albumName, '" title="Album: ', $albumName, '">
+              <span class="album-title">', $albumName, '</span>
+              <img src="', thumbPath($albumName, $imageName), '" width="', $thumbSize, '" height="', $thumbSize, '" alt="' ,  stripFileExt($imageName) , '"/>
             </a>
-          </div>' . "\n";
+          </div>', "\n";
 }
 echo '        </div>';
 include_once 'footer.php';

@@ -21,7 +21,7 @@ h1 {
 }
 
 h2,h3 {
-	color: rgb(131,141,151);
+	color:#eee;
 }
 
 header, footer {
@@ -36,7 +36,7 @@ footer {
 }
 nav {
 	list-style-type: none;
-	float:right;
+    display:inline-block;
 }
 nav ul {
 	margin:0;
@@ -67,36 +67,31 @@ a:visited {
 a:hover {
 	text-decoration: underline;
 }
-.container {
-    /* to allow links to be clickable */
-    z-index:-1;
-}
 #welcome {
-    position:relative!important;
-	top:12%;
+    position:relative;
+	top:20%;
 	width:100%;
 	text-align:center;
-    height:88%;
+    height:55%;
 }
-#gallery {
-    position:inherit;
-}
-.album {
+/* Portfolio and album pages */
+.album, .album-image {
     text-align:center;
 }
-
+.album-title {
+    font-size:2em;
+}
+/* Contact page */
 #contact_form {
     display:block;
     margin:0 auto;
     width:16em;
 }
-
 label {
     display:block;
     margin-top:20px;
     letter-spacing:2px;
 }
-
 input, textarea {
     width:15em;
     height:3ex;
@@ -110,22 +105,19 @@ input, textarea {
     -webkit-border-radius:5px;
     border-radius:5px;
 }
-
 input:focus, textarea:focus {
     border:1px solid #97d6eb;
 }
-
-#contact_form textarea {
+textarea {
     height:18ex;
 }
 
 #contact_submit:hover {
-    opacity:.9;
+    opacity:.75;
 }
-
 #contact_submit {
     width:10em;
-    height:4ex;
+    height:5ex;
     border:none;
     margin-top:20px;
     cursor:pointer;

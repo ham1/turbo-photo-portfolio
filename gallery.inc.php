@@ -1,13 +1,13 @@
 <?php
 // define some common variables
-$DIR = 'portfolio';
-$TDIR = 'thumbs';
-$thumbSize = 150;
+$DIR='portfolio';
+$TDIR='thumbs';
+$thumbSize = 160;
 
 // define some common functions
 function endsWith($haystack, $needle)
 {
-    return $needle === "" || substr($haystack, -strlen($needle)) === $needle;
+    return $needle === '' || substr($haystack, -strlen($needle)) === $needle;
 }
 
 function isJpg($fileName) {
@@ -20,6 +20,20 @@ function stripFileExt($filename){
 
 function listDir($startPath, $excludeList=array('.','..','.gitignore')) {
     return array_diff(scandir($startPath), $excludeList);
+}
+
+function getFirstJpgFile($path) {
+    $firstFile = 'NOT_FOUND';
+    $dir = opendir($path);
+    while(($currentFile = readdir($dir)) !== false) {
+        if (!isJpg($currentFile) ) {
+            continue;
+        }
+        $firstFile = $currentFile;
+        break;
+    }
+    closedir($dir);
+    return $firstFile;
 }
 
 function makePath() {
@@ -37,15 +51,19 @@ function thumbPath($album, $imageName) {
 }
 
 function checkAndCreateThumbnail($album, $imageName) {
-	$imagePath = imagePath($album, $imageName);
     $thumbPath = thumbPath($album, $imageName);
+    
     // make dir structure if needed
-    if (!file_exists(dirname($thumbPath))) {
-        mkdir(dirname($thumbPath), 0755, true);
+    $thumbDir = dirname($thumbPath);
+    if (!file_exists($thumbDir)) {
+        mkdir($thumbDir, 0755, true);
     }
+	
+    // create thumbnail if it doesn't exist
     if (!is_file($thumbPath)) {
-	    // create thumbnail
+	    $imagePath = imagePath($album, $imageName);
 	    $img = new Imagick($imagePath);
+        global $thumbSize;
 	    $img->cropThumbnailImage($thumbSize, $thumbSize);
 	    $img->writeImage($thumbPath);
 	    $img->destroy();

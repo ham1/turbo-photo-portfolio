@@ -11,12 +11,8 @@ function compress($buffer) {
     $buffer = str_replace(array("\r\n\r\n", "\r\r", "\n\n", "\t", '  ', '    ', '    '), '', $buffer);
     return $buffer;
 }
-/* your css files */
-echo '/* melody.css */';
 include('melody.css');
-echo '/* tpp.css */';
 include('tpp.css');
-echo '/* lightbox.css */';
 include('lightbox.css');
 ob_end_flush();
 ?>

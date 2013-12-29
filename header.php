@@ -36,8 +36,8 @@
 	<link rel="shortcut icon" href="img/favicon.png">
 </head>
 <body>
-		<header>
-			<nav>
+		<header class="container">
+			<nav class="grid 5of6 remove-padding offset-2">
 				<ul>
 				<li><a href="index.php"<?php if ($pageName == 'Home') echo $navHighlight; ?>>Home</a>
 				<li><a href="portfolio.php"<?php if ($pageName == 'Portfolio') echo $navHighlight; ?>>Portfolio</a>
