@@ -20,7 +20,7 @@
             // try to send the email
             if (mail($toEmail, $emailSubject, $emailBody, $mailheader)) {
                 $retrySubmit = false;
-                $userMessage = 'Message sucessfully submitted.';
+                $userMessage = 'Thank you. Message sucessfully submitted.';
             } else {
                 $retrySubmit = true;
                 $userMessage = 'The email failed to send, please try again.<p>If it <em>still</em> doesn\'t work, please email me: ' . $toEmail;
@@ -34,18 +34,16 @@
         <div class="container">
 <?php
 // after submit message box
-if (isset($_POST['submit'])) {
-    if ($retrySubmit) {
-        echo '<div id="contact-error" class="grid 1of1">', $userMessage, '</div>';
-    } else {
-        echo '<div id="contact-ok" class="grid 1of1">', $userMessage, '</div>';
-    }
-}
-?>
+if (isset($_POST['submit']))
+    if ($retrySubmit) {?>
+        <div id="contact-error" class="grid 1of1"><?php echo $userMessage; ?></div>
+<?php } else { ?>
+        <div id="contact-ok" class="grid 1of1"><?php echo $userMessage; ?></div>
+<?php } ?>
         <div class="grid 1of1">
             <form id="contact_form" method="post" action="contact.php">
                 <label>*Name</label>
-                <input name="name" type="text" placeholder="Type Your Name Here" required autofocus<?php if ($retrySubmit) echo ' value="', $_POST['name'], '"';?>>
+                <input name="name" type="text" placeholder="Type Your Name Here" required<?php if ($retrySubmit) echo ' value="', $_POST['name'], '"';?>>
                 <label>*Email</label>
                 <input name="email" type="email" placeholder="Type Your Email Address Here" required <?php if ($retrySubmit) echo ' value="', $_POST['email'], '"';?>>
                 <label>*Message</label>
