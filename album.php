@@ -7,7 +7,12 @@ include_once 'inc/gallery.inc.php';
 $albumArray = listDir($DIR);
 $album = $_GET['album'];
 if (!in_array($album, $albumArray)) {
-    die('Album not valid.');
+    echo '<div class="container">
+<h1 class="1of1 center">Album not valid.</h1>
+<p class="1of1 center"><a href="portfolio.php">Go back to the portfolio page</a></p>
+</div>';
+    include_once 'inc/footer.php';
+    die();
 }
 ?>
         <div id="album" class="container">
