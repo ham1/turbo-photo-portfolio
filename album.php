@@ -14,10 +14,44 @@ if (!in_array($album, $albumArray)) {
     include_once 'inc/footer.php';
     die();
 }
+
+// helper functions for generating prev and next links
+function albumLink($nextOrPrev) {
+    global $album;
+    global $albumArray;
+    $key = array_search($album, $albumArray);
+
+    if ($nextOrPrev == 'next') {
+        if ($key != (count($albumArray) - 1)) {
+            $key++;
+        } else {
+            $key = 0;
+        }
+    } else if ($nextOrPrev == 'prev') {
+        if ($key != 0) {
+            $key--;
+        } else {
+            $key = count($albumArray) - 1;
+        }
+    }
+
+    $linkAlbumName = $albumArray[$key];
+    return '<a href="album.php?album=' . $linkAlbumName . '" style="display:block;">' . $linkAlbumName . '</a>';
+        
+}
+function prevLink() {
+    return albumLink('prev');
+}
+function nextLink() {
+    return albumLink('next');
+}
 ?>
         <div id="album" class="container">
-        <div class="grid 1of1 center remove-padding album-title"><?php echo $album; ?></div>
 <?php
+echo '<div class="grid 1of4 center remove-padding prev-link">', prevLink(), '</div>';
+echo '<div class="grid 2of4 center remove-padding album-title">', $album, '</div>';
+echo '<div class="grid 1of4 center remove-padding next-link">', nextLink(), '</div>
+<div class="grid 1of1"></div>';
 // traverse album dir
 $imageArray = listDir(makePath($DIR, $album));
 foreach ($imageArray as $imageName) {

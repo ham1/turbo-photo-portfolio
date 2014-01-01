@@ -19,7 +19,8 @@ function stripFileExt($filename){
 }
 
 function listDir($startPath, $excludeList=array('.','..','.gitignore')) {
-    return array_diff(scandir($startPath), $excludeList);
+    // added array values to 0 base the index again
+    return array_values(array_diff(scandir($startPath), $excludeList));
 }
 
 function getFirstJpgFile($path) {
