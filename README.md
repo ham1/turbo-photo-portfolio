@@ -29,9 +29,11 @@ Instructions
 ### Installation
 1. Clone or download this git repo to the root of your web server
 2. Populate the portfolio folder with one folder per album and only with jpg files, not sub-folders
-3. Edit inc/variables.php and replace the defaults with your values
-4. Edit about.php with your About text
-5. Done.
+3. You can order images and albums by naming them thusly: <tt>01_First_Album - 01_first_image.jpg, 02_second_image.jpg</tt>
+4. Edit inc/variables.php and replace the defaults with your values
+5. Create a file <tt>inc/tracking.html</tt> and enter your visitor tracking code
+5. Edit about.php with your About text
+6. Done.
 
 
 TODO
