@@ -1,8 +1,5 @@
 <?php 
     $time_start = microtime(true);
-    if (!isset($pageName)) {
-     $pageName = '';
-    }
     $navHighlight = ' class="current"';
     require_once('variables.php');
 ?>
@@ -11,7 +8,7 @@
 <head>
 	<!-- Basic Page Needs ========================== -->
 	<meta charset="utf-8">
-	<title>Turbo Photography Portfolio - <?php echo $pageName; ?></title>
+	<title><?php echo $fullCompanyName, ' - ', $pageName; ?></title>
 	<meta name="description" content="<?php echo $description; ?>">
 	<meta name="author" content="Graham Russell">
 
