@@ -11,15 +11,14 @@ $albumArray = listDir($DIR);
 foreach ($albumArray as $albumName) {
     $imageName = getFirstJpgFile(makePath($DIR, $albumName));
     checkAndCreateThumbnail($albumName, $imageName);
-    $albumText = prettyPrintFileName($albumName);
-    echo '
-          <div class="album grid 1of3">
-            <a href="album.php?album=', $albumName, '" title="Album: ', $albumText, '">
-              <span class="album-title">', $albumText, '</span>
-              <img src="', thumbPath($albumName, $imageName), '" width="', $thumbSize, '" height="', $thumbSize, '" alt="' ,  prettyPrintFileName($imageName) , '"/>
-            </a>
-          </div>', "\n";
-}
-echo '        </div>';
-include_once 'inc/footer.php';
 ?>
+
+        <div class="album grid 1of3">
+            <a href="album.php?album=<?php echo $albumName; ?>">
+              <span class="album-title"><?php echo prettyPrintFileName($albumName); ?></span>
+              <img src="<?php echo thumbPath($albumName, $imageName); ?>" width="<?php echo $thumbSize; ?>" height="<?php echo $thumbSize; ?>" alt="<?php echo prettyPrintFileName($imageName); ?>"/>
+            </a>
+        </div>
+<?php }?>
+        </div>
+<?php include_once 'inc/footer.php'; ?>
