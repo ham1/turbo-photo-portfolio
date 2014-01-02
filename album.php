@@ -22,16 +22,16 @@ function albumLink($nextOrPrev) {
     global $album;
     global $albumArray;
     $key = array_search($album, $albumArray);
+    $count = count($albumArray);
 
     if ($nextOrPrev == 'next') {
-        $key = ($key + 1) % count($albumArray);
+        $key = ($key + 1) % $count;
     } else if ($nextOrPrev == 'prev') {
-        $count = count($albumArray);
         $key = ($key + $count - 1) % $count;
     }
 
     $linkAlbumName = $albumArray[$key];
-    return '<a href="album.php?album=' . $linkAlbumName . '" style="display:block">' . $linkAlbumName . '</a>';
+    return '<a href="album.php?album=' . $linkAlbumName . '" style="display:block">' . prettyPrintFileName($linkAlbumName) . '</a>';
         
 }
 function prevLink() {
@@ -43,7 +43,7 @@ function nextLink() {
 ?>
         <div id="album" class="container">
         <div class="grid 1of4 center remove-padding prev-link"><?php echo prevLink(); ?></div>
-        <div class="grid 2of4 center remove-padding album-title"><?php echo $album; ?></div>
+        <div class="grid 2of4 center remove-padding album-title"><?php echo prettyPrintFileName($album); ?></div>
         <div class="grid 1of4 center remove-padding next-link"><?php echo nextLink(); ?></div>
         <div class="grid 1of1 remove-padding center">...</div>
 <?php
@@ -58,8 +58,8 @@ foreach ($imageArray as $imageName) {
 ?>
 
         <div class="album-image grid 1of4">
-            <a href="<?php echo imagePath($album, $imageName); ?>" data-lightbox="<?php echo $album; ?>" title="<?php echo stripFileExt($imageName); ?>">
-                <img src="<?php echo thumbPath($album, $imageName); ?>" width="<?php echo $thumbSize; ?>" height="<?php echo $thumbSize; ?>" alt="<?php echo stripFileExt($imageName); ?>"/>
+            <a href="<?php echo imagePath($album, $imageName); ?>" data-lightbox="<?php echo $album; ?>" title="<?php echo prettyPrintFileName($imageName); ?>">
+                <img src="<?php echo thumbPath($album, $imageName); ?>" width="<?php echo $thumbSize; ?>" height="<?php echo $thumbSize; ?>" alt="<?php echo prettyPrintFileName($imageName); ?>"/>
             </a>
         </div>
 

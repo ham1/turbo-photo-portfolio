@@ -14,12 +14,21 @@ function isJpg($fileName) {
     return endsWith($fileName, '.jpg') || endsWith($fileName, '.jpeg');
 }
 
-function stripFileExt($filename){
+function stripFileExt($filename) {
     return preg_replace("/\\.[^.\\s]+$/", '', $filename);
 }
 
+function prettyPrintFileName($filename) {
+    $rtn = str_replace('_', ' ', stripFileExt($filename));
+    global $removeLeadingDigitsFromImgName;
+    if ($removeLeadingDigitsFromImgName) {
+        $rtn = preg_replace('/^\d+ /', '', $rtn);
+    }
+    return htmlspecialchars($rtn);
+}
+
 function listDir($startPath, $excludeList=array('.','..','.gitignore')) {
-    // added array values to 0 base the index again
+    // array_values creates a 0-base index again
     return array_values(array_diff(scandir($startPath), $excludeList));
 }
 
@@ -27,11 +36,10 @@ function getFirstJpgFile($path) {
     $firstFile = 'NOT_FOUND';
     $dir = opendir($path);
     while(($currentFile = readdir($dir)) !== false) {
-        if (!isJpg($currentFile) ) {
-            continue;
+        if (isJpg($currentFile) ) {
+            $firstFile = $currentFile;
+            break;
         }
-        $firstFile = $currentFile;
-        break;
     }
     closedir($dir);
     return $firstFile;

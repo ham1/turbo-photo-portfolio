@@ -11,11 +11,12 @@ $albumArray = listDir($DIR);
 foreach ($albumArray as $albumName) {
     $imageName = getFirstJpgFile(makePath($DIR, $albumName));
     checkAndCreateThumbnail($albumName, $imageName);
+    $albumText = prettyPrintFileName($albumName);
     echo '
           <div class="album grid 1of3">
-            <a href="album.php?album=', $albumName, '" title="Album: ', $albumName, '">
-              <span class="album-title">', $albumName, '</span>
-              <img src="', thumbPath($albumName, $imageName), '" width="', $thumbSize, '" height="', $thumbSize, '" alt="' ,  stripFileExt($imageName) , '"/>
+            <a href="album.php?album=', $albumName, '" title="Album: ', $albumText, '">
+              <span class="album-title">', $albumText, '</span>
+              <img src="', thumbPath($albumName, $imageName), '" width="', $thumbSize, '" height="', $thumbSize, '" alt="' ,  prettyPrintFileName($imageName) , '"/>
             </a>
           </div>', "\n";
 }
