@@ -27,7 +27,7 @@
 			<nav class="grid 5of6 remove-padding offset-2">
 				<ul>
 				<li><a href="index.php"<?php if ($pageName == 'Home') echo $navHighlight; ?>>Home</a>
-				<li><a href="portfolio.php"<?php if ($pageName == 'Portfolio') echo $navHighlight; ?>>Portfolio</a>
+				<li><a href="portfolio.php"<?php if ($pageName == 'Home') echo 'rel="prerender"'; if ($pageName == 'Portfolio') echo $navHighlight; ?>>Portfolio</a>
 				<li><a href="<?php echo $blogAddress; ?>">Blog</a>
 				<li><a href="about.php"<?php if ($pageName == 'About') echo $navHighlight; ?>>About</a>
 				<li><a href="contact.php"<?php if ($pageName == 'Contact') echo $navHighlight; ?>>Contact</a>
