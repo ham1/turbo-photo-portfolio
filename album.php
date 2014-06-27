@@ -65,8 +65,8 @@ foreach ($imageArray as $imageName) {
 
 <?php } ?>
         </div>
-        <script src="js/jquery-1.10.2.min.js"></script>
-        <script src="js/lightbox-2.6.min.js"></script>
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script src="js/lightbox.min.js"></script>
 
 <?php include_once 'inc/footer.php'; ?>
 
