@@ -28,12 +28,13 @@ Instructions
 
 ### Installation
 1. Clone or download this git repo to the root of your web server
-2. Populate the portfolio folder with one folder per album and only with jpg files, not sub-folders
-3. You can order images and albums by naming them thusly: <tt>01_First_Album - 01_first_image.jpg, 02_second_image.jpg</tt>
-4. Edit inc/variables.php and replace the defaults with your values
+2. Populate the <tt>portfolio</tt> folder with <strong>one folder per album and only with jpg files</strong>, not sub-folders
+3. You can order both images and albums by naming them thus: <tt>01_First_Album/01_first_image.jpg, 02_second_image.jpg</tt> etc.
+4. Edit <tt>inc/variables.php</tt> and replace the defaults with your values
 5. Create a file <tt>inc/tracking.html</tt> and enter your visitor tracking code
-5. Edit about.php with your About text
-6. Done.
+6. Edit <tt>about.php</tt> with your About text
+7. Go to the website and view your portfolio (NB it will take longer the first time you go to the page while it caches the images)
+8. Done
 
 
 TODO
