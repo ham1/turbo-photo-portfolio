@@ -1,5 +1,5 @@
 <footer>
-<?php echo '&copy; ', $copyright, ' :: ', date('Y'); ?>
+<?php echo '&copy; ', $copyright, ' :: ', gmdate('Y'); ?>
 
 </footer>
 <?php 
