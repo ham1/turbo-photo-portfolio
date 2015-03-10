@@ -10,8 +10,8 @@
             $emailSubject = 'TPP Contact from: ' . $_POST['name'];
 
             $emailBody = 'Name: ' . $_POST['name'];
-            $emailBody .= '\nEmail: ' . $_POST['email'];
-            $emailBody .= '/nComment: ' . nl2br(htmlspecialchars($_POST['message'], ENT_NOQUOTES | ENT_HTML5, 'UTF-8'));
+            $emailBody .= "\r\nEmail: " . $_POST['email'];
+            $emailBody .= "\r\nComment: " . nl2br(htmlspecialchars($_POST['message'], ENT_NOQUOTES | ENT_HTML5, 'UTF-8'));
             
             $mailheader = "From: ".$_POST["email"]."\r\n";
             $mailheader .= "Reply-To: ".$_POST["email"]."\r\n";
