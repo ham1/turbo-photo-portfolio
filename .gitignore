@@ -1,1 +1,7 @@
+# google verifcation
 google*.html
+# user specific includes
+inc/tracking.html
+inc/about.html
+# portfolio images
+portfolio/*
