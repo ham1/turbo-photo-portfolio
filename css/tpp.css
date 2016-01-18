@@ -1,164 +1,164 @@
 * {
-    margin:0;
+  margin:0;
 }
 
 html, body {
-    height: 100%;
+  height:100%;
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
-    background: url('../img/bg.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    color: white;
+  font-family:'Open Sans', sans-serif;
+  background:url('../img/bg.jpg');
+  background-size:cover;
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+  color:white;
 }
 
 h1 { 
-    color: white;
-    font-size: 2.5em !important;
+  color:white;
+  font-size:2.5em !important;
 }
 
-h2,h3 {
-    color:#eee;
+h2, h3 {
+  color:#eee;
 }
 
 header, footer {
-    max-width:1280px;
-    margin:auto;
+  max-width:1280px;
+  margin:auto;
 }
 
 footer {
-    color:#eee;
-    text-align:center;
-    font-size:small;
-    position:relative;
+  color:#eee;
+  text-align:center;
+  font-size:small;
+  position:relative;
 }
 
 /* Navigation */
 nav {
-    list-style-type: none;
-    display:inline-block;
+  list-style-type:none;
+  display:inline-block;
 }
 
 nav ul {
-    margin:0;
-    padding:0;
+  margin:0;
+  padding:0;
 }
 
 nav li {
-    float: left;
-    padding: 0 10px;
+  float:left;
+  padding:0 10px;
 }
 
 nav a {
-    text-decoration:none;
-    display:block;
-    width:6em;
-    line-height:6ex;
-    float:left;
-    text-align: center;
+  text-decoration:none;
+  display:block;
+  width:6em;
+  line-height:6ex;
+  float:left;
+  text-align:center;
 }
 
 nav .current {
-    background-color: #ea2;
+  background-color:#ea2;
 }
 
 a,
 a:visited {
-    color: #EEE;
-    text-decoration: none;
+  color:#EEE;
+  text-decoration:none;
 }
 
 .about a {
-    text-decoration: underline;
+  text-decoration:underline;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration:underline;
 }
 
 /* Home page */
 #welcome {
-    top:20%;
-    width:100%;
-    text-align:center;
-    height:55%;
+  top:20%;
+  width:100%;
+  text-align:center;
+  height:55%;
 }
 
 /* Portfolio and album pages */
 .album, .album-image {
-    text-align:center;
+  text-align:center;
 }
 
 .album-title {
-    font-size:2em;
-    display:block;
-    padding-bottom:1ex;
+  font-size:2em;
+  display:block;
+  padding-bottom:1ex;
 }
 
 .prev-link {
-    background: url("../img/prev.png") no-repeat scroll left 48%;
+  background:url("../img/prev.png") no-repeat scroll left 48%;
 }
 
 .next-link {
-    background: url("../img/next.png") no-repeat scroll right 48%;
+  background:url("../img/next.png") no-repeat scroll right 48%;
 }
 
 /* Contact page */
 #contact_form {
-    display:block;
-    margin:0 auto;
-    width:16em;
+  display:block;
+  margin:0 auto;
+  width:16em;
 }
 
 label {
-    display:block;
-    margin-top:20px;
-    letter-spacing:2px;
+  display:block;
+  margin-top:20px;
+  letter-spacing:2px;
 }
 
 input, textarea {
-    width:15em;
-    height:3ex;
-    background:#efefef;
-    border:1px solid #dedede;
-    padding:10px;
-    margin-top:3px;
-    font-size:0.9em;
-    color:#3a3a3a;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border-radius:5px;
+  width:15em;
+  height:3ex;
+  background:#efefef;
+  border:1px solid #dedede;
+  padding:10px;
+  margin-top:3px;
+  font-size:0.9em;
+  color:#3a3a3a;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
 }
 
 input:focus, textarea:focus {
-    border:1px solid #97d6eb;
+  border:1px solid #97d6eb;
 }
 
 textarea {
-    height:18ex;
+  height:18ex;
 }
 
 #contact_submit:hover {
-    opacity:.75;
+  opacity:.75;
 }
 
 #contact_submit {
-    width:10em;
-    height:5ex;
-    border:none;
-    margin-top:20px;
-    cursor:pointer;
+  width:10em;
+  height:5ex;
+  border:none;
+  margin-top:20px;
+  cursor:pointer;
 }
 
 #contact-error {
-    background: red;
-    opacity:.7;
+  background:red;
+  opacity:.7;
 }
 
 #contact-ok {
-    background: green;
-    opacity:.7;
+  background:green;
+  opacity:.7;
 }
