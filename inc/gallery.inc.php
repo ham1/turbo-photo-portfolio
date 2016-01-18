@@ -35,7 +35,7 @@ function listDir($startPath, $excludeList=array('.','..','.gitignore')) {
 function getFirstJpgFile($path) {
     $firstFile = 'NOT_FOUND';
     $dir = opendir($path);
-    while(($currentFile = readdir($dir)) !== false) {
+    while (($currentFile = readdir($dir)) !== false) {
         if (isJpg($currentFile) ) {
             $firstFile = $currentFile;
             break;
@@ -67,6 +67,10 @@ function checkAndCreateThumbnail($album, $imageName) {
     if (!file_exists($thumbDir)) {
         mkdir($thumbDir, 0755, true);
     }
+
+    if (!is_writable($thumbDir)) {
+        die('<pre>I do not seem to have have write permissions to the thumbs folder.</pre>');
+    }
 	
     // create thumbnail if it doesn't exist
     if (!is_file($thumbPath)) {
@@ -74,8 +78,11 @@ function checkAndCreateThumbnail($album, $imageName) {
 	    $img = new Imagick($imagePath);
         global $thumbSize;
 	    $img->cropThumbnailImage($thumbSize, $thumbSize);
-	    $img->writeImage($thumbPath);
+        $imgWrittenSuccess = $img->writeImage($thumbPath);
 	    $img->destroy();
+        if (!$imgWrittenSuccess) {
+            die('<pre>Cannot create image. Permission or disk space problem?</pre>');
+        }
 	}
 }
 ?>
