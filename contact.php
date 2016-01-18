@@ -20,10 +20,10 @@
             // try to send the email
             if (mail($toEmail, $emailSubject, $emailBody, $mailheader)) {
                 $retrySubmit = false;
-                $userMessage = 'Thank you. Message sucessfully submitted.';
+                $userMessage = 'Thank you. Message successfully submitted.';
             } else {
                 $retrySubmit = true;
-                $userMessage = 'The email failed to send, please try again.<p>If it <em>still</em> doesn\'t work, please email me: ' . $toEmail;
+                $userMessage = 'The email failed to send, please try again.<p>If it <em>still</em> does not work, please email me: ' . $toEmail;
             }
         } else {
             $retrySubmit = true;
