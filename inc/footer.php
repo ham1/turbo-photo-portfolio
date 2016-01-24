@@ -1,6 +1,5 @@
-<footer class="center">
-<?php echo '&copy; ', $copyright, ' :: ', gmdate('Y'); ?>
-
+<footer class="row center">
+  <div class="column"><?php echo '&copy; ', $copyright, ' :: ', gmdate('Y'); ?></div>
 </footer>
 </div>
 <?php 

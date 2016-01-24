@@ -51,12 +51,12 @@ function makePath() {
 
 function imagePath($album, $imageName) {
     global $DIR;
-	return makePath($DIR, $album, $imageName);
+    return makePath($DIR, $album, $imageName);
 }
 
 function thumbPath($album, $imageName) {
     global $TDIR;
-	return makePath($TDIR, $album, $imageName);
+    return makePath($TDIR, $album, $imageName);
 }
 
 function checkAndCreateThumbnail($album, $imageName) {
@@ -71,18 +71,18 @@ function checkAndCreateThumbnail($album, $imageName) {
     if (!is_writable($thumbDir)) {
         die('<pre>I do not seem to have have write permissions to the thumbs folder.</pre>');
     }
-	
+    
     // create thumbnail if it doesn't exist
     if (!is_file($thumbPath)) {
-	    $imagePath = imagePath($album, $imageName);
-	    $img = new Imagick($imagePath);
+        $imagePath = imagePath($album, $imageName);
+        $img = new Imagick($imagePath);
         global $thumbSize;
-	    $img->cropThumbnailImage($thumbSize, $thumbSize);
+        $img->cropThumbnailImage($thumbSize, $thumbSize);
         $imgWrittenSuccess = $img->writeImage($thumbPath);
-	    $img->destroy();
+        $img->destroy();
         if (!$imgWrittenSuccess) {
             die('<pre>Cannot create image. Permission or disk space problem?</pre>');
         }
-	}
+    }
 }
 ?>

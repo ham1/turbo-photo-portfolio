@@ -1,5 +1,8 @@
 <?php
   $time_start = microtime(true); // performance measurement
+  if (!extension_loaded('imagick')) {
+    die('imagick not installed');
+  }
   require_once('variables.php');
 ?>
 <!DOCTYPE html>
@@ -16,15 +19,15 @@
 </head>
 <body>
 <div class="container">
-  <header class="row">
-    <nav>
-      <?php
-        function linkClassForNavLink($linkName) {
-          $linkClass = ' button-clear';
-          global $pageName;
-          return ' class="column button' . (($pageName != $linkName) ? $linkClass : '') . '"';
-        }
-      ?>
+  <header>
+    <nav class="row">
+<?php
+  function linkClassForNavLink($linkName) {
+    $linkClass = ' button-clear';
+    global $pageName;
+    return ' class="column button' . (($pageName != $linkName) ? $linkClass : '') . '"';
+  }
+?>
       <a href="index.php"<?php echo linkClassForNavLink('Home'); ?>>Home</a>
       <a href="portfolio.php" rel="prefetch"<?php echo linkClassForNavLink('Portfolio'); ?>>Portfolio</a>
       <a href="<?php echo $blogAddress; ?>"<?php echo linkClassForNavLink('Blog'); ?>>Blog</a>
