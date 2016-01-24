@@ -1,58 +1,60 @@
 <?php
+/**
+ * Combines and minifies specified CSS files. Tested with https://redbot.org
+ *
+ * NB. Order of output not guaranteed, e.g. minified css files are output first.
+ * Also, services like Cloudflare seem to break the 304 functionality.
+ */
 // The CSS files to combine
 $cssFiles = array('melody.css', 'tpp.css', 'lightbox.min.css');
 
-/* Deal with HTTP headers */
+/* HTTP headers */
 
-// Calculates last modified and md5 of the above files, including this php file
+// Calculates last modified and md5 of CSS files and this php script
 $lastModified = filemtime(__FILE__);
-$eTagHash = md5_file(__FILE__);
+$fileHash = md5_file(__FILE__);
 foreach ($cssFiles as $file) {
-    $eTagHash .= md5_file($file);
+    $fileHash .= md5_file($file);
     $mod = filemtime($file);
     if ($mod > $lastModified) {
         $lastModified = $mod;
     }
 }
-$eTagHash = md5($eTagHash);
-
-// Processes headers from the client
-$ifModifiedSince =
-    (isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])
-        ? @strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE'])
-        : false);
-$eTagHeader =
-    (isset($_SERVER['HTTP_IF_NONE_MATCH'])
-        ? trim($_SERVER['HTTP_IF_NONE_MATCH'])
-        : false);
+$eTagHash = md5($fileHash);
 
 // Sends headers back to the client
 header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $lastModified) . ' GMT');
-header('Etag: "' . $eTagHash . '"');
+header('ETag: "' . $eTagHash . '"');
 $secondsPerWeek = 60 * 60 * 24 * 7;
-header('Cache-Control: max-age=' . $secondsPerWeek . ', must-revalidate');
-header('Expires: ' . gmdate ('D, d M Y H:i:s', time() + $secondsPerWeek) . ' GMT');
+// set cache age to 1 week
+// omitting 'must-revalidate' allows serving of stale cache
+// further reduces network traffic i.e. no need to check for 304
+header('Cache-Control: max-age=' . $secondsPerWeek);
 
 // check if page has changed. If not, send 304 and exit
-if ($ifModifiedSince > $lastModified || $eTagHeader == $eTagHash) {
+if ((isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])
+        &&
+        strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) >= $lastModified)
+    ||
+    (isset($_SERVER['HTTP_IF_NONE_MATCH'])
+        &&
+        strpos($_SERVER['HTTP_IF_NONE_MATCH'], $eTagHash) !== false))
+{
     header('HTTP/1.1 304 Not Modified');
     exit();
 }
 // Content-type needed for the body, not required if we send the 304 above.
 header('Content-type: text/css');
 
-/* send the content */
+/* Send the content */
 
-// output minified CSS input files first
-// i.e. file names ending in .min.css
+// output minified CSS input files first i.e. file names ending in .min.css
 foreach($cssFiles as $key => $file) {
     if (substr($file, -8) === '.min.css') {
-        include($file);
-        unset($cssFiles[$key]);
+        include($file); // output the already minified file
+        unset($cssFiles[$key]); // remove file name from file list
     }
 }
-
-ob_start('simpleCSSMinify');
 
 function simpleCSSMinify($buffer) {
     // remove comments, new lines and tabs
@@ -66,6 +68,8 @@ function simpleCSSMinify($buffer) {
     return $buffer;
 }
 
+// output css files after running them through the minify function first
+ob_start('simpleCSSMinify');
 foreach($cssFiles as $file) {
     include($file);
 }
