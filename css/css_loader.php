@@ -17,12 +17,14 @@ foreach ($cssFiles as $file) {
 $etagHash = md5($etagHash);
 
 // Processes headers from the client
-$ifModifiedSince = (isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])
-    ? @strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE'])
-    : false);
-$etagHeader = (isset($_SERVER['HTTP_IF_NONE_MATCH'])
-    ? trim($_SERVER['HTTP_IF_NONE_MATCH'])
-    : false);
+$ifModifiedSince =
+    (isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])
+        ? @strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE'])
+        : false);
+$etagHeader =
+    (isset($_SERVER['HTTP_IF_NONE_MATCH'])
+        ? trim($_SERVER['HTTP_IF_NONE_MATCH'])
+        : false);
 
 // Sends headers back to the client
 header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $lastModified) . ' GMT');
