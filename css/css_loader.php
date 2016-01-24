@@ -74,4 +74,3 @@ foreach($cssFiles as $file) {
     include($file);
 }
 ob_end_flush();
-?>
