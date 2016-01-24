@@ -1,4 +1,4 @@
-<footer>
+<footer class="center">
 <?php echo '&copy; ', $copyright, ' :: ', gmdate('Y'); ?>
 
 </footer>
