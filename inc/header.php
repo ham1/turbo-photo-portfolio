@@ -6,14 +6,14 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title><?php echo $fullCompanyName, ' - ', $pageName; ?></title>
+  <title><?php echo $pageName, ' - ', $fullCompanyName; ?></title>
   <meta name="description" content="<?php echo $description; ?>">
   <meta name="author" content="<?php echo $fullCompanyName; ?>">
-  <!-- Mobile Specific Metas === -->
+  <!-- Mobile Specific -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <!-- CSS ===================== -->
-  <link href='css/css_loader.php' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic' rel='stylesheet' type='text/css'>
+  <!-- CSS -->
+  <link href="css/css_loader.php" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic" rel="stylesheet" type="text/css">
 </head>
 <body>
   <header class="container">
