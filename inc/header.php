@@ -9,15 +9,15 @@
   <title><?php echo $pageName, ' - ', $fullCompanyName; ?></title>
   <meta name="description" content="<?php echo $description; ?>">
   <meta name="author" content="<?php echo $fullCompanyName; ?>">
-  <!-- Mobile Specific -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <!-- CSS -->
+
   <link href="css/css_loader.php" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <header class="container">
-    <nav class="row">
+<div class="container">
+  <header class="row">
+    <nav>
       <?php
         function linkClassForNavLink($linkName) {
           $linkClass = ' button-clear';

@@ -2,6 +2,7 @@
 <?php echo '&copy; ', $copyright, ' :: ', gmdate('Y'); ?>
 
 </footer>
+</div>
 <?php 
 if (file_exists('inc/tracking.html')) {
     include_once 'inc/tracking.html';
