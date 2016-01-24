@@ -6,7 +6,7 @@
  * Also, services like Cloudflare seem to break the 304 functionality.
  */
 // The CSS files to combine
-$cssFiles = array('melody.css', 'tpp.css', 'lightbox.min.css');
+$cssFiles = array('milligram.min.css', 'tpp.css', 'lightbox.min.css');
 
 /* HTTP headers */
 

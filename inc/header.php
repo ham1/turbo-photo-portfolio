@@ -13,24 +13,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <!-- CSS ===================== -->
   <link href='css/css_loader.php' rel='stylesheet' type='text/css'>
-  <link href='//fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <header class="container">
-    <nav class="grid 5of6 remove-padding offset-2">
-    <ul>
-    <li><a href="index.php"<?php
-      $navHighlight = ' class="current"';
-      if ($pageName == 'Home') echo $navHighlight; ?>>Home</a>
-    <li><a href="portfolio.php"<?php
-      if ($pageName == 'Home') echo 'rel="prerender"';
-      if ($pageName == 'Portfolio') echo $navHighlight; ?>>Portfolio</a>
-    <li><a href="<?php echo $blogAddress; ?>">Blog</a>
-    <li><a href="about.php"<?php
-      if ($pageName == 'About') echo $navHighlight; ?>>About</a>
-    <li><a href="contact.php"<?php
-      if ($pageName == 'Contact') echo $navHighlight; ?>>Contact</a>
-    </ul>
+    <nav class="row">
+      <?php
+        function linkClassForNavLink($linkName) {
+          $linkClass = ' button-clear';
+          global $pageName;
+          return ' class="column button' . (($pageName != $linkName) ? $linkClass : '') . '"';
+        }
+      ?>
+      <a href="index.php"<?php echo linkClassForNavLink('Home'); ?>>Home</a>
+      <a href="portfolio.php" rel="prefetch"<?php echo linkClassForNavLink('Portfolio'); ?>>Portfolio</a>
+      <a href="<?php echo $blogAddress; ?>"<?php echo linkClassForNavLink('Blog'); ?>>Blog</a>
+      <a href="about.php"<?php echo linkClassForNavLink('About'); ?>>About</a>
+      <a href="contact.php"<?php echo linkClassForNavLink('Contact'); ?>>Contact</a>
     </nav>
   </header>
 
