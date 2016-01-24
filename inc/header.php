@@ -12,10 +12,8 @@
   <!-- Mobile Specific Metas === -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <!-- CSS ===================== -->
-  <link  href='css/css_loader.php' rel='stylesheet' type='text/css'>
+  <link href='css/css_loader.php' rel='stylesheet' type='text/css'>
   <link href='//fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
-  <!-- Favicon ================= -->
-  <link rel="shortcut icon" href="img/favicon.png">
 </head>
 <body>
   <header class="container">
