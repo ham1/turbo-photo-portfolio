@@ -2,7 +2,7 @@ Turbo Photo Portfolio (TurboPP)
 ===============================
 
 A simple and elegant photographic portfolio website written from scratch.
-Real life usage on my photo portfolio: (http://grussellphotography.com).
+Real life usage on my photo portfolio: (https://grussellphotography.com).
 Released under the GPLv2 so others can contribute and share!
 
 Written using _only_ PHP (HTML, CSS and JS), TurboPP:
