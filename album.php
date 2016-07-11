@@ -1,5 +1,5 @@
 <?php
-$pageName = 'Album: ' . $_GET['album'];
+$pageName = 'Album: ' . htmlspecialchars($_GET['album']);
 include_once 'inc/header.php';
 include_once 'inc/gallery.inc.php';
 
@@ -36,7 +36,6 @@ function albumLink($nextOrPrev) {
           . '" style="display:block">'
           . prettyPrintFileName($linkAlbumName)
           . '</a>';
-    
 }
 function prevLink() {
   return albumLink('prev');
@@ -62,8 +61,13 @@ foreach ($imageArray as $imageName) {
 ?>
 
     <div class="album-image grid 1of4">
-      <a href="<?php echo imagePath($album, $imageName); ?>" data-lightbox="<?php echo $album; ?>" title="<?php echo prettyPrintFileName($imageName); ?>">
-        <img src="<?php echo thumbPath($album, $imageName); ?>" width="<?php echo $thumbSize; ?>" height="<?php echo $thumbSize; ?>" alt="<?php echo prettyPrintFileName($imageName); ?>"/>
+      <a href="<?php echo imagePath($album, $imageName); ?>"
+         data-lightbox="<?php echo $album; ?>"
+         title="<?php echo prettyPrintFileName($imageName); ?>">
+        <img src="<?php echo thumbPath($album, $imageName); ?>"
+             width="<?php echo $thumbSize; ?>"
+             height="<?php echo $thumbSize; ?>"
+             alt="<?php echo prettyPrintFileName($imageName); ?>" />
       </a>
     </div>
 

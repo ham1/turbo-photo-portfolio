@@ -5,8 +5,7 @@ $TDIR='thumbs';
 require_once('variables.php');
 
 // define some common functions
-function endsWith($haystack, $needle)
-{
+function endsWith($haystack, $needle) {
     return $needle === '' || substr($haystack, -strlen($needle)) === $needle;
 }
 
