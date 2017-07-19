@@ -19,7 +19,7 @@ Written using _only_ PHP (HTML, CSS and JS), TurboPP:
 Built With The Help Of
 -----------------------
 - Lightbox for image display (by Lokesh Dhakar - http://lokeshdhakar.com - https://github.com/lokesh/lightbox2)
-- MelodyCss for the responsive theme - http://melodycss.co/
+- MelodyCss for the responsive theme
 - Contact page largely thanks to http://tangledindesign.com/how-to-create-a-contact-form-using-html5-css3-and-php/
 
 Instructions
