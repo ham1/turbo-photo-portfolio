@@ -12,9 +12,9 @@ if (isset($_POST['submit'])) {
         // construct email message
         $emailSubject = 'TPP Contact from: ' . $_POST['name'];
 
-        $emailBody = 'Name: ' . $_POST['name'];
-        $emailBody .= "\r\nEmail: " . $emailAddress;
-        $emailBody .= "\r\nComment: " . nl2br(htmlspecialchars($_POST['message'], ENT_NOQUOTES | ENT_HTML5, 'UTF-8'));
+        $emailBody = '<p>Name: ' . $_POST['name'];
+        $emailBody .= "\r\n<p>Email: " . $emailAddress;
+        $emailBody .= "\r\n<p>Comment: " . nl2br(htmlspecialchars($_POST['message'], ENT_NOQUOTES | ENT_HTML5, 'UTF-8'));
 
         $emailHeader = "From: ". $emailAddress ."\r\n";
         $emailHeader .= "Reply-To: ". $emailAddress ."\r\n";
