@@ -1,13 +1,13 @@
-Turbo Photo Portfolio (TurboPP)
-===============================
+# Turbo Photo Portfolio (TurboPP)
 
 A simple and elegant photographic portfolio website written from scratch.
-Real life usage on my photo portfolio: (https://grussellphotography.com).
 Released under the GPLv2 so others can contribute and share!
 
-Written using _only_ PHP (HTML, CSS and JS), TurboPP:
+Written using _only_ PHP (and HTML, CSS and JS).
 
-- is very fast;
+TurboPP:
+
+- is very fast (<~1ms to generate pages);
 - is simple;
 - is easy to install;
 - makes it easy to add/edit:
@@ -16,36 +16,30 @@ Written using _only_ PHP (HTML, CSS and JS), TurboPP:
   - themes.
 - is beautiful
 
-Built With The Help Of
------------------------
+## Built With Help
+
 - Lightbox for image display (by Lokesh Dhakar - http://lokeshdhakar.com - https://github.com/lokesh/lightbox2)
 - MelodyCss for the responsive theme
 - Contact page largely thanks to http://tangledindesign.com/how-to-create-a-contact-form-using-html5-css3-and-php/
 
-Instructions
-------------
+## Instructions
+
 ### Pre-requisites
+
 1. A web server with PHP and ImageMagick
 2. Some images
 
 ### Installation
+
 1. Clone or download this git repo to the root of your web server
 2. Populate the `portfolio` folder with <strong>one folder per album and only with jpg files</strong>, not sub-folders
 3. You can order both images and albums by naming them thus: `01_First_Album/01_first_image.jpg, 02_second_image.jpg` etc.
 4. Edit `inc/variables.php` and replace the defaults with your values
 5. Create a file `inc/tracking.html` and enter your visitor tracking code
 6. Edit `about.php` with your About text
-7. Go to the website and view your portfolio (NB it will take longer the first time you go to the page while it caches the images)
+7. Go to the website and view your portfolio (N.B. the first hit will take longer while it builds the thumbnail images)
 8. Done
 
-TODO
-----
-- write better instructions
-- improve code structure, while trying to keep it simple
-- write some unit tests
-- performance test
-- functionally test across a variety of configurations
-  - browser
-  - web server
-  - operating system
-  - photo size, amount and structure
+## Future
+
+There are no plans for any future development.
